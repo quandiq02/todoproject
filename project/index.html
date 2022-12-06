@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <title>To do list</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <div class="header__name">
+                    tasks
+                </div>
+                <div class="header__input">
+                    <input type="date" name="date" id="date-1" class="header__input-date">
+                    <input type="text" name="note" id="note-1" class="header__input-note" placeholder="Add note...">
+                    <label class="switch">
+                        <input type="checkbox" class="header__input-checkbox" id="check-1">
+                        <span class="slider round"></span>
+                    </label>
+                    <button type="submit" class="addNoteBtn">Add note</button>
+                </div>
+                <div class="header__user user">
+                    <div class="user__img">
+                        <img src="./icons/user-solid.svg" alt="user">
+                    </div>
+                    <span class="user__name">admin</span>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container">
+            <div class="main__wrapper">
+                <div class="main__menu-submenu submenu">
+                    <input type="radio" name="tab" id="tab-1" checked>
+                    <input type="radio" name="tab" id="tab-2">
+                    <label for="tab-1" class="tab__title tab__title-1">
+                        <div class="tab__logo tab__logo-1">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <span>All tasks</span>
+                    </label>
+                    <label for="tab-2" class="tab__title tab__title-2">
+                        <div class="tab__logo tab__logo-1">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                        <span class="category__name">Category</span>
+                    </label>
+                </div>
+                <div class="main__menu-centered">
+                    <div class="tasks-block">
+                       
+                    </div>
+                    <div class="category-block">
+                        category
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./settings.js"></script>
+</body>
+
+</html>
