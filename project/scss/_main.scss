@@ -12,7 +12,6 @@
 
     &__menu-centered {
         flex-basis: 75%;
-        border: 1px solid red;
     }
 }
 
@@ -20,6 +19,8 @@
     max-width: 1170px;
     margin: 0 auto;
 }
+
+
 
 .submenu {
     display: flex;
@@ -64,12 +65,39 @@
 .category-block {
     display: none;
 }
-.tasks-block{
+
+.tasks-block {
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+
+    // align-items: center;
+    #search-1 {
+        flex-basis: 100%;
+        margin: 10px;
+        border: 1px solid #2196F3;
+        border-radius: 20px;
+        min-height: 30px;
+        padding-left: 10px;
+        @include font(14px, $ffInterReg, 400, #000, inherit, left, 15px);
+
+
+
+    }
+
+    #search-1:focus,
+    #search-1:hover {
+        outline: none;
+    }
+
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+    }
 }
-.task__item{
+
+.task__item {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -81,22 +109,27 @@
     margin-top: 10px;
     margin-left: 10px;
     @include font(14px, $ffInterReg, 400, #000, inherit, center, 15px);
-    
-    .task-condition{
+
+    .task-condition {
         height: 15px;
         width: 15px;
         border-radius: 50%;
         background-color: #ff0000;
     }
-    .task-name{
+
+    .task-name {
         width: 25%;
         margin-left: 10px;
         text-align: left;
+        cursor: pointer;
     }
-    .task-date{
+
+    .task-date {
         width: 25%;
+        cursor: pointer;
     }
-    button{
+
+    button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -107,10 +140,12 @@
         @include font(14px, $ffInterBold, 700, #fff, inherit, left, 15px);
 
     }
-    .task-delete{
+
+    .task-delete {
         background-color: rgb(255, 111, 0);
     }
-    .task-edit{
+
+    .task-edit {
         background-color: #2196F3;
     }
 }

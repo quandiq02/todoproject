@@ -246,7 +246,6 @@ input:checked + .slider:before {
 .main__menu-centered {
   -ms-flex-preferred-size: 75%;
       flex-basis: 75%;
-  border: 1px solid red;
 }
 
 .container {
@@ -327,9 +326,32 @@ input:checked + .slider:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+}
+.tasks-block #search-1 {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  margin: 10px;
+  border: 1px solid #2196F3;
+  border-radius: 20px;
+  min-height: 30px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 400;
+  color: #000;
+  text-transform: inherit;
+  text-align: left;
+  line-height: 15px;
+}
+.tasks-block #search-1:focus,
+.tasks-block #search-1:hover {
+  outline: none;
+}
+.tasks-block input[type=search]::-webkit-search-decoration,
+.tasks-block input[type=search]::-webkit-search-cancel-button,
+.tasks-block input[type=search]::-webkit-search-results-button,
+.tasks-block input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
 }
 
 .task__item {
@@ -366,9 +388,11 @@ input:checked + .slider:before {
   width: 25%;
   margin-left: 10px;
   text-align: left;
+  cursor: pointer;
 }
 .task__item .task-date {
   width: 25%;
+  cursor: pointer;
 }
 .task__item button {
   display: -webkit-box;
