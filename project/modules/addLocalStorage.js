@@ -1,6 +1,3 @@
-window.onload = function (){
-    clearLocalstorage();
-}
 let dateInfo = document.querySelector('#date-1'),
     noteInfo = document.querySelector('#note-1'),
     btnAddNote = document.querySelector('.addNoteBtn'),
@@ -13,8 +10,6 @@ let dateInfo = document.querySelector('#date-1'),
 
 function addLocalStorage() {
     btnAddNote.addEventListener('click', () => {
-        debugger
-
         if (noteInfo.value != "" && dateInfo.value != "") {
             if (notes.length == 0) {
                 data.id = id;
@@ -38,9 +33,6 @@ function addLocalStorage() {
         }
         localStorage.setItem('notes', JSON.stringify(notes));
     })
-}
-function clearLocalstorage(){
-    localStorage.clear();
 }
 export {
     addLocalStorage

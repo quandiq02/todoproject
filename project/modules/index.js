@@ -1,3 +1,17 @@
-export {tabChecked,tabSettings} from"./tabs.js"
-export {addLocalStorage} from"./addLocalStorage.js"
-export {addNote} from "./addNote.js"
+export {
+    tabChecked,
+    tabSettings
+}
+from "./tabs.js"
+export {
+    addLocalStorage
+}
+from "./addLocalStorage.js"
+export {
+    addNote
+}
+from "./addNote.js"
+// export {
+//     sortCategory
+// }
+// from "./sortCategory.js"
