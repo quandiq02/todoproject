@@ -10,6 +10,7 @@ import {
 import { sortCategories } from "./sortCategories.js";
 import { taskDone } from "./taskDone.js";
 import { deleteNote } from "./deleteNote.js";
+import { editNote } from "./editNote.js";
 
 function addNote() {
   btnAddNote.addEventListener("click", function () {
@@ -17,21 +18,21 @@ function addNote() {
     let _lsNotes = JSON.parse(localStorage.getItem("notes"));
     if (noteInfo.value != "" && dateInfo.value != "") {
       const taskItem = `
-                    <div class="task__item task__item-${_lsNotes[i].id}" data-item="${_lsNotes[i].id}">
-                    <span class="task-condition task-condition-${_lsNotes[i].id}"></span>
-                    <div class="task-name task-name-${_lsNotes[i].id}" data-item="${_lsNotes[i].id}">${_lsNotes[i].target}</div>
-                    <div class="task-date task-date-${_lsNotes[i].id}" data-item="${_lsNotes[i].id}">${_lsNotes[i].date}, 00:00:00</div>
-                    <button class="task-delete" data-item="${_lsNotes[i].id}">Delete</button>
-                    <button class="task-edit">Edit</button>
+                    <div class="task__item task__item-${i}" data-item="${i}">
+                    <span class="task-condition task-condition-${i}"></span>
+                    <div class="task-name task-name-${i}" data-item="${i}">${_lsNotes[i].target}</div>
+                    <div class="task-date task-date-${i}" data-item="${i}">${_lsNotes[i].date}</div>
+                    <button class="task-delete" data-item="${i}">Delete</button>
+                    <button class="task-edit" data-item="${i}">Edit</button>
                     </div>
                     `;
       const catItem = `
-            <div class="category__item category__item-${_lsNotes[i].id}" data-item="${_lsNotes[i].id}">
-                <div class="category__note category__note-${_lsNotes[i].id}" data-item="${_lsNotes[i].id}">${_lsNotes[i].target}</div>
-                <div class="category__date category__date-${_lsNotes[i].id}" data-item="${_lsNotes[i].id}">${_lsNotes[i].date}</div>
+            <div class="category__item category__item-${i}" data-item="${i}">
+                <div class="category__note category__note-${i}" data-item="${i}">${_lsNotes[i].target}</div>
+                <div class="category__date category__date-${i}" data-item="${i}">${_lsNotes[i].date}</div>
                 <div class="category__btn">
-                    <button class="category__btn-delete data-item="${_lsNotes[i].id}"">Delete</button>
-                    <button class="category__btn-edit">Edit</button>
+                    <button class="category__btn-delete category__btn-delete-${i}" data-item="${_lsNotes[i].id}">Delete</button>
+                    <button class="category__btn-edit category__btn-edit-${i}" data-item="${_lsNotes[i].id}">Edit</button>
                 </div>
            </div>
             `;
@@ -46,18 +47,18 @@ function addNote() {
         taskCond.style.background = `#ff0000`;
       }
 
+      deleteNote();
+      editNote();
       sortCategories();
 
       taskName.addEventListener("click", taskDone);
       taskDate.addEventListener("click", taskDone);
-      deleteNote();
+      taskCheckbox.checked = false;
+      noteInfo.value = "";
+      dateInfo.value = "";
     } else {
       alert("Заполните все поля!");
     }
-    taskCheckbox.checked = false;
-    noteInfo.value = "";
-    i++;
-    localStorage.setItem("count", JSON.stringify(i));
   });
 }
 

@@ -7,32 +7,30 @@ import {
 } from "./vars.js";
 
 let notes = [],
-  data = {},
-  index = 1,
-  id = 0;
+  data = {};
 
 function addLocalStorage() {
   btnAddNote.addEventListener("click", () => {
     if (noteInfo.value != "" && dateInfo.value != "") {
       let _localStorage = JSON.parse(localStorage.getItem("notes")) ?? [];
+      let i = JSON.parse(localStorage.getItem("count")) ?? 0;
       notes = Object.assign([], _localStorage);
       if (notes.length == 0) {
-        data.id = id;
+        data.id = i;
         data.target = noteInfo.value;
         data.date = dateInfo.value;
         data.importance = taskCheckbox.checked;
         data.done = false;
         notes.push(data);
-        id++;
+        i++;
       } else {
         notes.push({});
-        notes[index].id = id;
-        notes[index].target = noteInfo.value;
-        notes[index].date = dateInfo.value;
-        notes[index].importance = taskCheckbox.checked;
-        notes[index].done = false;
-        index++;
-        id++;
+        notes[i].id = i;
+        notes[i].target = noteInfo.value;
+        notes[i].date = dateInfo.value;
+        notes[i].importance = taskCheckbox.checked;
+        notes[i].done = false;
+        i++;
       }
     }
     localStorage.setItem("notes", JSON.stringify(notes));

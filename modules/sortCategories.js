@@ -1,12 +1,8 @@
 //Sorting in Categories code
-import {
-  importantContent,
-  inprocessContent,
-  doneContent,
-} from "./vars.js";
-let i=0;
+import { importantContent, inprocessContent, doneContent } from "./vars.js";
 function sortCategories() {
-  let _lsNotes = JSON.parse(localStorage.getItem("notes"))
+  let i = JSON.parse(localStorage.getItem("count")) ?? 0;
+  let _lsNotes = JSON.parse(localStorage.getItem("notes"));
   if (_lsNotes[i].done == true) {
     doneContent.appendChild(document.querySelector(`.category__item-${i}`));
   } else {
@@ -21,6 +17,7 @@ function sortCategories() {
     }
   }
   i++;
+  localStorage.setItem("count", JSON.stringify(i));
 }
 
 export { sortCategories };
