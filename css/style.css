@@ -68,7 +68,6 @@ a {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 10px;
 }
 .header__name {
   display: -webkit-box;
@@ -91,6 +90,7 @@ a {
   line-height: 19px;
 }
 .header__input-date, .header__input-note {
+  margin-top: 15px;
   height: 30px;
   background-color: transparent;
   border-radius: 20px;
@@ -109,7 +109,25 @@ a {
   line-height: 15px;
 }
 .header__user {
-  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 15px;
+  padding: 10px;
+}
+.header__user .user__tab-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 100%;
+  display: none;
+}
+.header__user .user__tab-menu div {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #fff;
 }
 
 .container {
@@ -236,8 +254,8 @@ input:checked + .slider:before {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 10px;
-  min-height: calc(100vh - 65px);
+  min-height: calc(100vh - 75px);
+  margin-top: 10px;
 }
 .main__menu-submenu {
   -ms-flex-preferred-size: 20%;
@@ -251,6 +269,7 @@ input:checked + .slider:before {
 .container {
   max-width: 1260px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .submenu {
@@ -326,15 +345,19 @@ input:checked + .slider:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .tasks-block #search-1 {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  margin: 10px;
+  width: 95%;
   border: 1px solid #2196F3;
   border-radius: 20px;
   min-height: 30px;
-  padding-left: 10px;
+  padding: 0 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
   font-size: 14px;
   font-family: "Inter";
   font-weight: 400;
@@ -515,7 +538,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 0;
   right: 0;
-  min-height: calc(100vh - 65px);
+  min-height: calc(100vh - 75px);
   width: 1px;
   background-color: #2196F3;
 }
@@ -531,7 +554,7 @@ input:checked + .slider:before {
   position: absolute;
   top: 0;
   right: 0;
-  min-height: calc(100vh - 65px);
+  min-height: calc(100vh - 75px);
   width: 1px;
   background-color: #2196F3;
 }
@@ -616,6 +639,10 @@ input:checked + .slider:before {
   display: none;
 }
 
+.hideOthersbyID {
+  display: none;
+}
+
 .box {
   height: 100vh;
   display: -webkit-box;
@@ -668,23 +695,28 @@ input:checked + .slider:before {
   font-family: "Inter";
   font-weight: 400;
   color: #000;
-  text-transform: uppercase;
+  text-transform: inherit;
   text-align: left;
   line-height: 15px;
 }
 .box .wrapper input::-webkit-input-placeholder {
+  text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
 }
 .box .wrapper input::-moz-placeholder {
+  text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
 }
 .box .wrapper input:-ms-input-placeholder {
+  text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
 }
 .box .wrapper input::-ms-input-placeholder {
+  text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
 }
 .box .wrapper input::placeholder {
+  text-transform: uppercase;
   color: rgba(0, 0, 0, 0.4);
 }
 .box .wrapper button {
@@ -722,4 +754,385 @@ input:checked + .slider:before {
 .box .wrapper .user-logo img {
   width: 50%;
   height: auto;
+}
+
+.settings,
+.signup {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #74ebd5;
+  background: -webkit-gradient(linear, left top, right top, from(#ACB6E5), to(#74ebd5));
+  background: linear-gradient(to right, #ACB6E5, #74ebd5);
+}
+.settings__title,
+.signup__title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-family: "Inter";
+  font-weight: 700;
+  color: #000;
+  text-transform: inherit;
+  text-align: center;
+  line-height: 15px;
+}
+.settings__login, .settings__password, .settings__password-confirm,
+.signup__login,
+.signup__password,
+.signup__password-confirm {
+  width: 100%;
+  min-height: 20px;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 2px solid #74ebd5;
+  outline: none;
+}
+.settings__login:focus, .settings__password:focus, .settings__password-confirm:focus,
+.signup__login:focus,
+.signup__password:focus,
+.signup__password-confirm:focus {
+  border-color: #ff6f00;
+}
+.settings__login-title, .settings__password-title, .settings__confPassword-title,
+.signup__login-title,
+.signup__password-title,
+.signup__confPassword-title {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-bottom: 5px;
+}
+.settings__checkbox, .settings__button,
+.signup__checkbox,
+.signup__button {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+.settings__bio,
+.signup__bio {
+  padding: 5px;
+  width: 100%;
+  height: 100px;
+  resize: none;
+  border: 2px solid #74ebd5;
+  outline: none;
+  margin-bottom: 15px;
+}
+.settings__bio:focus,
+.signup__bio:focus {
+  border-color: #ff6f00;
+}
+.settings__button-exit, .settings__button-save, .settings__button-signin,
+.signup__button-exit,
+.signup__button-save,
+.signup__button-signin {
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 700;
+  color: #fff;
+  text-transform: inherit;
+  text-align: center;
+  line-height: 15px;
+}
+
+.settings-wrapper,
+.signup-wrapper {
+  background: #fff;
+  width: 350px;
+  padding: 40px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.admin {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #74ebd5;
+  background: -webkit-gradient(linear, left top, right top, from(#ACB6E5), to(#74ebd5));
+  background: linear-gradient(to right, #ACB6E5, #74ebd5);
+}
+.admin__login, .admin__password {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 400;
+  color: #000;
+  text-transform: inherit;
+  text-align: left;
+  line-height: 15px;
+  border: 2px solid #2196F3;
+  outline: none;
+}
+.admin__login::-webkit-input-placeholder, .admin__password::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+.admin__login::-moz-placeholder, .admin__password::-moz-placeholder {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+.admin__login:-ms-input-placeholder, .admin__password:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+.admin__login::-ms-input-placeholder, .admin__password::-ms-input-placeholder {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+.admin__login::placeholder, .admin__password::placeholder {
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+.admin__login:focus, .admin__password:focus {
+  border: 2px solid #ff6f00;
+}
+.admin__password {
+  margin-top: 20px;
+}
+.admin__right-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.admin__adduser-btn {
+  cursor: pointer;
+  width: 40%;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196F3;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 700;
+  color: #fff;
+  text-transform: inherit;
+  text-align: center;
+  line-height: 15px;
+  margin-top: 20px;
+}
+.admin__list {
+  padding: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.admin__list::-webkit-scrollbar {
+  width: 11px;
+}
+.admin__list::-webkit-scrollbar-track {
+  background: #2196F3;
+}
+.admin__list::-webkit-scrollbar-thumb {
+  background-color: #ffa500;
+  border-radius: 6px;
+  border: 3px solid #2196F3;
+}
+
+.admin-wrapper {
+  background: #fff;
+  width: 700px;
+  padding: 40px;
+  margin-top: 150px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
+  position: relative;
+}
+.admin-wrapper::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 90%;
+  top: 5%;
+  background: rgba(0, 0, 0, 0.27);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.admin-wrapper .back-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: none;
+  border-radius: 10px 3px 3px 3px;
+  background-color: #2196F3;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 700;
+  color: #fff;
+  text-transform: inherit;
+  text-align: center;
+  line-height: 15px;
+}
+
+.left-menu,
+.right-menu {
+  width: 47%;
+  padding: 0 10px;
+}
+.left-menu__title,
+.right-menu__title {
+  padding: 20px 0;
+  font-size: 15px;
+  font-family: "Inter";
+  font-weight: 700;
+  color: #000;
+  text-transform: inherit;
+  text-align: center;
+  line-height: 15px;
+}
+.left-menu__title::first-letter,
+.right-menu__title::first-letter {
+  text-transform: uppercase;
+}
+
+.admin__list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0;
+}
+.admin__list-item + .admin__list-item {
+  margin-top: 5px;
+}
+.admin__list-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+}
+.admin__btn-delete, .admin__btn-change {
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 700;
+  color: #fff;
+  text-transform: inherit;
+  text-align: center;
+  line-height: 15px;
+  background-color: #ff6f00;
+  padding: 5px 10px;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.admin__btn-change {
+  background-color: #2196F3;
+  margin-left: 10px;
+}
+
+.checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+.checkbox label {
+  margin-left: 5px;
+}
+.checkbox__generate {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.checkbox__showPass {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.checkbox__makeadmin {
+  margin-top: 10px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

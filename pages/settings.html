@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="settings">
+        <div class="settings-wrapper">
+            <div class="settings__title">
+                Settings
+            </div>
+            <label for="settings__login-input" class="settings__login-title">Login</label>
+            <input type="text" class="settings__login" id="settings__login-input">
+            <label for="settings__password-input" class="settings__password-title">Password</label>
+            <input type="password" class="settings__password" id="settings__password-input">
+            <label for="settings__password-confirm" class="settings__confPassword-title">Confirm password</label>
+            <input type="password" class="settings__password-confirm" id="settings__password-confirm">
+            <div class="settings__checkbox checkbox">
+                <div class="checkbox__generate">
+                    <input type="checkbox" name="settings-generate" id="generate-1">
+                    <label for="generate-1" class="settings__generate-title">Generate</label>
+                </div>
+                <div class="checkbox__showPass">
+                    <input type="checkbox" name="settings-showPass" id="showPass-1">
+                    <label for="showPass-1" class="settings__showPass-title">Show Password</label>
+                </div>
+            </div>
+            <textarea name="bio" class="settings__bio" id="settings__bio"
+                placeholder="Write something about yourself..."></textarea>
+            <div class="settings__button button">
+                <button class="settings__button-exit">Exit</button>
+                <button class="settings__button-save">Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="../modules/users/changeUserInfo.js"></script>
+    <script src="../modules/redirect.js" type="module"></script>
+</body>
+
+</html>

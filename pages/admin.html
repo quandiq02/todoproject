@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="admin">
+        <div class="admin-wrapper">
+            <div class="admin__left-menu left-menu ">
+                <div class="left-menu__title">user list</div>
+                <ol class="admin__list">
+                    <span id="here"></span>
+                </ol>
+            </div>
+            <div class="admin__right-menu right-menu">
+                <div class="right-menu__title">Add new user</div>
+                <input type="text" class="admin__login" placeholder="Login">
+                <input type="password" class="admin__password" placeholder="password">
+                <div class="admin__checkbox checkbox">
+                    <div class="checkbox__generate">
+                        <input type="checkbox" name="admin-generate" id="generate-1">
+                        <label for="generate-1" class="admin__generate-title">Generate</label>
+                    </div>
+                    <div class="checkbox__showPass">
+                        <input type="checkbox" name="admin-showPass" id="showPass-1">
+                        <label for="showPass-1" class="admin__showPass-title">Show Password</label>
+                    </div>
+                    <div class="checkbox__makeadmin">
+                        <input type="checkbox" name="admin-makeAdmin" id="makeAdmin-1">
+                        <label for="makeAdmin-1" class="admin__makeAdmin-title">Make Admin</label>
+                    </div>
+                </div>
+                <button class="admin__adduser-btn">Add user</button>
+            </div>
+            <button class="back-btn">Back</button>
+        </div>
+    </div>
+    <script src="../modules/admin.js"></script>
+</body>
+
+</html>

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Notes</title>
 </head>
 
@@ -30,9 +30,14 @@
                 </div>
                 <div class="header__user user">
                     <div class="user__img">
-                        <img src="./icons/user-solid.svg" alt="user">
+                        <img src="../icons/user-solid.svg" alt="user">
                     </div>
-                    <span class="user__name">admin</span>
+                    <span class="user__name"></span>
+                    <div class="user__tab-menu">
+                        <div class="user__logout">Logout</div>
+                        <div class="user__profile">My Profile</div>
+                        <div class="user__permissions">Permissions</div>
+                    </div>
                 </div>
 
             </div>
@@ -73,10 +78,10 @@
                             <div class="category-important important">
                                 <div class="important-title">Important</div>
                                 <div class="important-content">
-                                    
+
                                 </div>
                             </div>
-                           
+
                             <div class="category-done done">
                                 <div class="done-title">Done</div>
                                 <div class="done-content">
@@ -89,7 +94,8 @@
             </div>
         </div>
     </div>
-    <script type="module" src="./settings.js"></script>
+    <script type="module" src="../modules/note-settings.js"></script>
+    <script type="module" src="../modules/redirect.js"></script>
 </body>
 
 </html>

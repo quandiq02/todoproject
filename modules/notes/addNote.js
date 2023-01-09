@@ -6,7 +6,7 @@ import {
   taskCheckbox,
   catsBlock,
   searchInput,
-} from "./vars.js";
+} from "../vars.js";
 import { sortCategories } from "./sortCategories.js";
 import { taskDone } from "./taskDone.js";
 import { deleteNote } from "./deleteNote.js";
@@ -14,6 +14,7 @@ import { editNote } from "./editNote.js";
 
 function addNote() {
   btnAddNote.addEventListener("click", function () {
+    let _currentUSER =JSON.parse(localStorage.getItem('current-user'));
     let i = JSON.parse(localStorage.getItem("count")) ?? 0;
     let _lsNotes = JSON.parse(localStorage.getItem("notes"));
     if (noteInfo.value != "" && dateInfo.value != "") {
@@ -50,6 +51,9 @@ function addNote() {
       deleteNote();
       editNote();
       sortCategories();
+
+
+
 
       taskName.addEventListener("click", taskDone);
       taskDate.addEventListener("click", taskDone);

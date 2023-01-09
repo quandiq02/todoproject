@@ -1,5 +1,5 @@
 //Searching note code
-import { searchInput } from "./vars.js";
+import { searchInput } from "../vars.js";
 
 function searchNote() {
   searchInput.addEventListener("input", () => {
@@ -14,6 +14,7 @@ function searchNote() {
         }
       });
     } else {
+
       items.forEach(function (elem) {
           elem.classList.remove("hideSearch");
       });

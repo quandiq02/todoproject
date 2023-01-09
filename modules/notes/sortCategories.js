@@ -1,5 +1,5 @@
 //Sorting in Categories code
-import { importantContent, inprocessContent, doneContent } from "./vars.js";
+import { importantContent, inprocessContent, doneContent } from "../vars.js";
 function sortCategories() {
   let i = JSON.parse(localStorage.getItem("count")) ?? 0;
   let _lsNotes = JSON.parse(localStorage.getItem("notes"));

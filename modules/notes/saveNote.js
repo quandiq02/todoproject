@@ -4,10 +4,9 @@ import {
   inprocessContent,
   importantContent,
   doneContent,
-} from "./vars.js";
+  taskCond,
+} from "../vars.js";
 import { taskDone } from "./taskDone.js";
-import { deleteNote } from "./deleteNote.js";
-import { editNote } from "./editNote.js";
 function saveNote() {
   if (localStorage.getItem("notes")) {
     let _lsNotes = JSON.parse(localStorage.getItem("notes")),
@@ -189,7 +188,7 @@ function saveNote() {
           popupCat.style.display = "none";
         }
       });
-      let saveBtn = document.querySelector(`.save__btn-task-${index}`);
+      let saveBtn = document.querySelector(`.save__btn-cat-${index}`);
       saveBtn.addEventListener("click", () => {
         console.log('index : ',index)
         console.log('click')
@@ -210,6 +209,12 @@ function saveNote() {
         popupCat.style.display = "none";
       });
     });
+    if(_lsNotes[i].done==true){
+    taskCond.style.background = "#3bc43b";
+    taskName.style.textDecoration = "line-through";
+    taskDate.style.textDecoration = "line-through";
+
+    }
     }
   }
 }

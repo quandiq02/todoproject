@@ -1,5 +1,5 @@
 //Task Done code
-import { doneContent, importantContent, inprocessContent } from "./vars.js";
+import { doneContent, importantContent, inprocessContent } from "../vars.js";
 
 function taskDone(event) {
   let target = event.target;

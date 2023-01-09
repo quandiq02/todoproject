@@ -1,8 +1,9 @@
 .main {
+
     &__wrapper {
         @include flex(space-between, wrap);
-        padding: 10px;
-        min-height: calc(100vh - 65px);
+        min-height: calc(100vh - 75px);
+        margin-top: 10px;
     }
 
     &__menu-submenu {
@@ -18,6 +19,8 @@
 .container {
     max-width: 1260px;
     margin: 0 auto;
+    padding: 0 10px;
+
 }
 
 
@@ -69,14 +72,17 @@
 .tasks-block {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     #search-1 {
-        flex-basis: 100%;
-        margin: 10px;
+        width: 95%;
         border: 1px solid #2196F3;
         border-radius: 20px;
         min-height: 30px;
-        padding-left: 10px;
+        padding: 0 15px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
         @include font(14px, $ffInterReg, 400, #000, inherit, left, 15px);
 
 
@@ -222,7 +228,7 @@
             @include pseudo;
             top: 0;
             right: 0;
-            min-height: calc(100vh - 65px);
+            min-height: calc(100vh - 75px);
             width: 1px;
             background-color: #2196F3;
         }
@@ -240,7 +246,7 @@
             @include pseudo;
             top: 0;
             right: 0;
-            min-height: calc(100vh - 65px);
+            min-height: calc(100vh - 75px);
             width: 1px;
             background-color: #2196F3;
         }
@@ -324,6 +330,10 @@
     display: none;
 }
 
+.hideOthersbyID {
+    display: none;
+}
+
 
 //auth.html styles
 
@@ -356,9 +366,10 @@
             margin-bottom: 30px;
             outline: none;
             border: 2px solid #2196F3;
-            @include font(14px, $ffInterReg, 400, #000, uppercase, left, 15px);
+            @include font(14px, $ffInterReg, 400, #000, inherit, left, 15px);
 
             &::placeholder {
+                text-transform: uppercase;
                 color: rgba(0, 0, 0, 0.4);
 
             }
@@ -383,10 +394,295 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            img{
+
+            img {
                 width: 50%;
                 height: auto;
             }
         }
+    }
+}
+
+.settings,
+.signup {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #74ebd5;
+    background: linear-gradient(to right, #ACB6E5, #74ebd5);
+
+    &__title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+        @include font(20px, $ffInterBold, 700, #000, inherit, center, 15px);
+
+    }
+
+    &__login,
+    &__password,
+    &__password-confirm {
+        width: 100%;
+        min-height: 20px;
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 2px solid #74ebd5;
+        outline: none;
+
+        &:focus {
+            border-color: #ff6f00;
+        }
+    }
+
+    &__login-title,
+    &__password-title,
+    &__confPassword-title {
+        align-self: flex-start;
+        margin-bottom: 5px;
+
+    }
+
+    &__checkbox,
+    &__button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    &__bio {
+        padding: 5px;
+        width: 100%;
+        height: 100px;
+        resize: none;
+        border: 2px solid #74ebd5;
+        outline: none;
+        margin-bottom: 15px;
+
+        &:focus {
+            border-color: #ff6f00;
+        }
+    }
+
+
+    &__button-exit,
+    &__button-save,
+    &__button-signin {
+        width: 40%;
+        border: none;
+        border-radius: 5px;
+        background-color: #2196F3;
+        color: #fff;
+        padding: 5px 10px;
+        @include font(14px, $ffInterBold, 700, #fff, inherit, center, 15px);
+
+
+    }
+
+}
+
+.settings-wrapper,
+.signup-wrapper {
+    background: #fff;
+    width: 350px;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    @include flex(center, wrap);
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+//admin page styles
+
+.admin {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #74ebd5;
+    background: linear-gradient(to right, #ACB6E5, #74ebd5);
+
+    &__login,
+    &__password {
+        margin-top: 10px;
+        padding: 5px;
+        width: 100%;
+        @include font(14px, $ffInterReg, 400, #000, inherit, left, 15px);
+        border: 2px solid #2196F3;
+        outline: none;
+
+        &::placeholder {
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.4);
+
+        }
+
+        &:focus {
+            border: 2px solid #ff6f00
+        }
+    }
+
+    &__password {
+        margin-top: 20px;
+    }
+
+    &__right-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    &__adduser-btn {
+        cursor: pointer;
+        width: 40%;
+        border: none;
+        border-radius: 5px;
+        background-color: #2196F3;
+        color: #fff;
+        padding: 5px 10px;
+        @include font(14px, $ffInterBold, 700, #fff, inherit, center, 15px);
+        margin-top: 20px;
+    }
+
+    &__list {
+        padding: 5px;
+        max-height: 200px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #2196F3;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color:#ffa500;
+            border-radius: 6px;
+            border: 3px solid #2196F3;
+        }
+    }
+}
+
+.admin-wrapper {
+    background: #fff;
+    width: 700px;
+    padding: 40px;
+    margin-top: 150px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    @include flex(space-between, no-wrap);
+    position: relative;
+
+    &::after {
+        @include pseudo;
+        left: 50%;
+        width: 1px;
+        height: 90%;
+        top: 5%;
+        background: rgba(0, 0, 0, 0.27);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    }
+
+    .back-btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: none;
+        border-radius: 10px 3px 3px 3px;
+        background-color: #2196F3;
+        color: #fff;
+        padding: 5px 10px;
+        cursor: pointer;
+        @include font(14px, $ffInterBold, 700, #fff, inherit, center, 15px);
+    }
+}
+
+.left-menu,
+.right-menu {
+    width: 47%;
+    padding: 0 10px;
+
+    &__title {
+        padding: 20px 0;
+
+        &::first-letter {
+            text-transform: uppercase
+        }
+
+        @include font(15px, $ffInterBold, 700, #000, inherit, center, 15px);
+
+    }
+}
+
+.admin {
+
+    &__list-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+
+    }
+
+    &__list-item+&__list-item {
+        margin-top: 5px;
+    }
+
+    &__list-buttons {
+        display: flex;
+        justify-content: none;
+    }
+
+    &__btn-delete,
+    &__btn-change {
+        @include font(14px, $ffInterBold, 700, #fff, inherit, center, 15px);
+        background-color: #ff6f00;
+        padding: 5px 10px;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+
+    &__btn-change {
+        background-color: #2196F3;
+        margin-left: 10px;
+    }
+}
+
+.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    label {
+        margin-left: 5px;
+    }
+
+    &__generate {
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__showPass {
+        width: 50%;
+        display: flex;
+    }
+
+    &__makeadmin {
+        margin-top: 10px;
+        width: 50%;
+        display: flex;
     }
 }

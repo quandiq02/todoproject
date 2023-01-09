@@ -92,7 +92,7 @@ function editNote() {
         popupCat.style.display = "none";
       }
     });
-    let saveBtn = document.querySelector(`.save__btn-task-${index}`);
+    let saveBtn = document.querySelector(`.save__btn-cat-${index}`);
     saveBtn.addEventListener("click", () => {
       console.log('index : ',index)
       console.log('click')
