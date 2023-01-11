@@ -1,5 +1,6 @@
 window.onload = function () {
   tabChecked();
+
 };
 
 let tabBlock1 = document.querySelector(".tasks-block"),
@@ -38,7 +39,7 @@ function userTab() {
     userPermissions = document.querySelector(".user__permissions"),
     userName = document.querySelector(".user__name");
   _lsUsers.forEach((elem) => {
-    if (elem.isAdmin == false) {
+    if (elem.login == _currentUSER[0].login && elem.isAdmin == false) {
       userPermissions.style.display = "none";
     }
   });

@@ -1,6 +1,6 @@
 // Editing Note Code
+import { alertInfo } from "./alertInfo.js";
 function editNote() {
-  
   let editTaskBtn = document.querySelector(".task-edit"),
     editCatBtn = document.querySelectorAll(".category__btn-edit"),
     m = JSON.parse(localStorage.getItem("count")) ?? 0;
@@ -40,21 +40,29 @@ function editNote() {
     });
     let saveBtn = document.querySelector(`.save__btn-task-${index}`);
     saveBtn.addEventListener("click", () => {
+    
       let newTarget = document.querySelector(`.new__target-${index}`),
         newDate = document.querySelector(`.new__date-${index}`),
         oldTargetCat = document.querySelector(`.category__note-${index}`),
         oldDateCat = document.querySelector(`.category__date-${index}`),
         oldTargetTask = document.querySelector(`.task-name-${index}`),
         oldDateTask = document.querySelector(`.task-date-${index}`);
-      _lsNotes[index].target = newTarget.value;
-      _lsNotes[index].date = newDate.value;
-      oldTargetCat.textContent = newTarget.value;
-      oldDateCat.textContent = newDate.value;
-      oldDateTask.textContent = newDate.value;
-      oldTargetTask.textContent = newTarget.value;
+      if (newTarget.value == oldTargetTask.textContent && newDate.value == oldDateTask.textContent) {
+        popupTask.style.display = "none";
+      }else{
+        _lsNotes[index].target = newTarget.value;
+        _lsNotes[index].date = newDate.value;
+        oldTargetCat.textContent = newTarget.value;
+        oldDateCat.textContent = newDate.value;
+        oldDateTask.textContent = newDate.value;
+        oldTargetTask.textContent = newTarget.value;
+        let msg = document.querySelector(".msg") ?? 0;
+        msg.textContent = "Note edited";
+        alertInfo();
+        localStorage.setItem("notes", JSON.stringify(_lsNotes));
+        popupTask.style.display = "none";
+      }
 
-      localStorage.setItem("notes", JSON.stringify(_lsNotes));
-      popupTask.style.display = "none";
     });
   });
   editCatBtn[m].addEventListener("click", (event) => {
@@ -94,23 +102,34 @@ function editNote() {
     });
     let saveBtn = document.querySelector(`.save__btn-cat-${index}`);
     saveBtn.addEventListener("click", () => {
-      console.log('index : ',index)
-      console.log('click')
+ 
+
       let newTarget = document.querySelector(`.new__target-${index}`),
         newDate = document.querySelector(`.new__date-${index}`),
         oldTargetCat = document.querySelector(`.category__note-${index}`),
         oldDateCat = document.querySelector(`.category__date-${index}`),
         oldTargetTask = document.querySelector(`.task-name-${index}`),
         oldDateTask = document.querySelector(`.task-date-${index}`);
-      _lsNotes[index].target = newTarget.value;
-      _lsNotes[index].date = newDate.value;
-      oldTargetCat.textContent = newTarget.value;
-      oldDateCat.textContent = newDate.value;
-      oldDateTask.textContent = newDate.value;
-      oldTargetTask.textContent = newTarget.value;
 
-      localStorage.setItem("notes", JSON.stringify(_lsNotes));
-      popupCat.style.display = "none";
+    if (
+            newTarget.value == oldTargetCat.textContent &&
+            newDate.value == oldDateCat.textContent
+          ) {
+            popupCat.style.display = "none";
+          } else {
+            _lsNotes[index].target = newTarget.value;
+            _lsNotes[index].date = newDate.value;
+            oldTargetCat.textContent = newTarget.value;
+            oldDateCat.textContent = newDate.value;
+            oldDateTask.textContent = newDate.value;
+            oldTargetTask.textContent = newTarget.value;
+          
+            localStorage.setItem("notes", JSON.stringify(_lsNotes));
+            popupCat.style.display = "none";
+            let msg = document.querySelector(".msg") ?? 0;
+            msg.textContent = "Note edited";
+            alertInfo();
+          }
     });
   });
 }

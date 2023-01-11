@@ -4,6 +4,7 @@ import { addNote } from "./notes/addNote.js";
 import { searchNote } from "./notes/searchNote.js";
 import { saveNote } from "./notes/saveNote.js";
 import { sortByID } from "./notes/sortByID.js";
+import { check } from "./notes/importanceCheckbox.js";
 
 tabChecked();
 tabSettings();
@@ -13,3 +14,4 @@ searchNote();
 saveNote();
 userTab();
 sortByID();
+check();

@@ -1,9 +1,13 @@
 //Deleting note code
+import { alertInfo } from "./alertInfo.js";
 function deleteNote() {
   let deleteTaskBtn = document.querySelector(".task-delete"),
     deleteCatBtn = document.querySelectorAll(".category__btn-delete"),
     m = JSON.parse(localStorage.getItem("count")) ?? 0;
   deleteTaskBtn.addEventListener("click", (event) => {
+    let msg = document.querySelector(".msg") ?? 0;
+    msg.textContent = "Note removed";
+    alertInfo()
     let k = JSON.parse(localStorage.getItem("count"));
     let target = event.target;
     let index = target.getAttribute("data-item");
@@ -15,14 +19,20 @@ function deleteNote() {
 
     document.querySelector(`.task__item-${index}`).remove();
     document.querySelector(`.category__item-${index}`).remove();
+ 
     k--;
     localStorage.setItem("count", JSON.stringify(k));
     if (k == 0) {
       localStorage.removeItem("notes");
       localStorage.removeItem("count");
     }
+
+
   });
   deleteCatBtn[m].addEventListener("click", (event) => {
+    let msg = document.querySelector(".msg") ?? 0;
+    msg.textContent = "Note removed";
+    alertInfo()
     let k = JSON.parse(localStorage.getItem("count"));
     let target = event.target;
     let index = target.getAttribute("data-item");

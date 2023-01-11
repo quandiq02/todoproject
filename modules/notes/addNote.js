@@ -11,6 +11,7 @@ import { sortCategories } from "./sortCategories.js";
 import { taskDone } from "./taskDone.js";
 import { deleteNote } from "./deleteNote.js";
 import { editNote } from "./editNote.js";
+import { alertInfo } from "./alertInfo.js";
 
 function addNote() {
   btnAddNote.addEventListener("click", function () {
@@ -19,7 +20,7 @@ function addNote() {
     let _lsNotes = JSON.parse(localStorage.getItem("notes"));
     if (noteInfo.value != "" && dateInfo.value != "") {
       const taskItem = `
-                    <div class="task__item task__item-${i}" data-item="${i}">
+                    <div class="task__item task__item-${i} task__userID-${_lsNotes[i].userID}" data-item="${i}">
                     <span class="task-condition task-condition-${i}"></span>
                     <div class="task-name task-name-${i}" data-item="${i}">${_lsNotes[i].target}</div>
                     <div class="task-date task-date-${i}" data-item="${i}">${_lsNotes[i].date}</div>
@@ -28,12 +29,12 @@ function addNote() {
                     </div>
                     `;
       const catItem = `
-            <div class="category__item category__item-${i}" data-item="${i}">
-                <div class="category__note category__note-${i}" data-item="${i}">${_lsNotes[i].target}</div>
-                <div class="category__date category__date-${i}" data-item="${i}">${_lsNotes[i].date}</div>
+            <div class="category__item category__item-${i} category__userID-${_lsNotes[i].userID}" data-item="${i}">
+                <div class="category__note category__note-${i} " data-item="${i}">${_lsNotes[i].target}</div>
+                <div class="category__date category__date-${i} " data-item="${i}">${_lsNotes[i].date}</div>
                 <div class="category__btn">
                     <button class="category__btn-delete category__btn-delete-${i}" data-item="${_lsNotes[i].id}">Delete</button>
-                    <button class="category__btn-edit category__btn-edit-${i}" data-item="${_lsNotes[i].id}">Edit</button>
+                    <button class="category__btn-edit category__btn-edit-${i}" data-item="${_lsNotes[i].id}" >Edit</button>
                 </div>
            </div>
             `;
@@ -48,12 +49,13 @@ function addNote() {
         taskCond.style.background = `#ff0000`;
       }
 
+     
+      let msg = document.querySelector(".msg") ?? 0;
+      msg.textContent = "Note added";
+      alertInfo()
       deleteNote();
       editNote();
       sortCategories();
-
-
-
 
       taskName.addEventListener("click", taskDone);
       taskDate.addEventListener("click", taskDone);

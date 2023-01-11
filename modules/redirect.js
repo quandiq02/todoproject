@@ -1,15 +1,8 @@
-let signinBtn = document.querySelector(".signin__btn") ?? 0,
+let permissionBtn = document.querySelector(".user__permissions") ?? 0,
   logoutBtn = document.querySelector(".user__logout") ?? 0,
-  settingsBtn = document.querySelector(".user__profile") ?? 0;
-if (signinBtn) {
-  signinBtn.addEventListener("click", () => {
-    let loginInput = document.querySelector("#login-1"),
-      passwordInput = document.querySelector("#password-1");
-    if ("admin" == loginInput.value && "admin" == passwordInput.value) {
-      window.location.href = "../pages/notes.html";
-    }
-  });
-}
+  settingsBtn = document.querySelector(".user__profile") ?? 0,
+  tosSignupBtn = document.querySelector(".signup__redirect") ?? 0;
+
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("current-user");
@@ -19,5 +12,15 @@ if (logoutBtn) {
 if (settingsBtn) {
   settingsBtn.addEventListener("click", () => {
     window.location.href = "./settings.html";
+  });
+}
+if (permissionBtn) {
+  permissionBtn.addEventListener("click", () => {
+    window.location.href = "./admin.html";
+  });
+}
+if (tosSignupBtn) {
+  tosSignupBtn.addEventListener("click", () => {
+    window.location.href = "./signup.html";
   });
 }

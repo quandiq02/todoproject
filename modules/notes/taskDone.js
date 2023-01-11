@@ -1,5 +1,6 @@
 //Task Done code
 import { doneContent, importantContent, inprocessContent } from "../vars.js";
+import { alertInfo } from "./alertInfo.js";
 
 function taskDone(event) {
   let target = event.target;
@@ -12,6 +13,7 @@ function taskDone(event) {
   if (taskDate.style.textDecoration == "line-through") {
     taskName.style.textDecoration = "none";
     taskDate.style.textDecoration = "none";
+    
     _lsNotes[index].done = false;
     if (_lsNotes[index].importance == true) {
       taskCond.style.background = `#ff0000`;
@@ -22,6 +24,9 @@ function taskDone(event) {
     taskDate.style.textDecoration = "line-through";
     taskName.style.textDecoration = "line-through";
     taskCond.style.background = "#3bc43b";
+    let msg = document.querySelector(".msg") ?? 0;
+    msg.textContent = "Task done!!!";
+    alertInfo();
     _lsNotes[index].done = true;
   }
 
