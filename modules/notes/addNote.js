@@ -40,7 +40,7 @@ function addNote() {
            </div>
             `;
       searchInput.insertAdjacentHTML("afterend", taskItem);
-      catsBlock.insertAdjacentHTML("afterbegin", catItem);
+      catsBlock.insertAdjacentHTML("afterend", catItem);
 
       let taskName = document.querySelector(".task-name"),
         taskDate = document.querySelector(".task-date"),
