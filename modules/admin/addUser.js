@@ -5,9 +5,10 @@ function addUser() {
   let addUserLogin = document.querySelector(".admin__login"),
     addUserPassword = document.querySelector(".admin__password"),
     makeAdminCheckbox = document.querySelector("#makeAdmin-1"),
+    generatePass = document.querySelector("#generate-1"),
     addUserBtn = document.querySelector(".admin__adduser-btn");
   addUserBtn.addEventListener("click", () => {
-    if (addUserLogin.value != "" && addUserPassword != "") {
+    if (addUserLogin.value != "" && addUserPassword.value != "") {
       let _userCount = JSON.parse(localStorage.getItem("user-count")) ?? 0;
       let _lsUsers = JSON.parse(localStorage.getItem("users-list")) ?? [],
         _currentUser = JSON.parse(localStorage.getItem("current-user")) ?? [];
@@ -45,6 +46,8 @@ function addUser() {
       localStorage.setItem("user-count", _userCount);
       addUserLogin.value = "";
       addUserPassword.value = "";
+      makeAdminCheckbox.checked = false;
+      generatePass.checked = false;
     } else {
       alert("Все поля не заполнены!!!");
     }

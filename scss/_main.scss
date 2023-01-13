@@ -427,6 +427,7 @@
         flex-direction: column;
         align-items: center;
         padding: 5px;
+        min-height: 200px;
 
         div {
             margin: 10px;
@@ -479,7 +480,9 @@
 }
 
 
-
+.category__zone{
+    min-height: 80vh;
+}
 .alert {
     background: #2196F3;
     padding: 20px 40px;
@@ -492,6 +495,7 @@
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
+    z-index: 2 ;
 }
 
 .alert.showAlert {

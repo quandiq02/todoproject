@@ -1,9 +1,7 @@
 function sortByID() {
-  let _lsNotes = JSON.parse(localStorage.getItem("notes")),
-    _lsUsers = JSON.parse(localStorage.getItem("users-list"));
+  let _lsNotes = JSON.parse(localStorage.getItem("notes")) ?? [],
+    _lsUsers = JSON.parse(localStorage.getItem("users-list")) ?? 0;
   let _currentUSER = JSON.parse(localStorage.getItem("current-user"));
-  let tasks = document.querySelectorAll(".task__item");
-  let cats = document.querySelectorAll(".category__item");
   for (let i = 0; i < _lsNotes.length; i++) {
     if (_currentUSER[0].userID != _lsNotes[i].userID) {
       let tasksHide = document.querySelectorAll(
@@ -24,15 +22,13 @@ function sortByID() {
       }
     }
   }
-  for (let i = 0; i < _lsUsers.length; i++) {
-    if (_lsUsers[i].isAdmin == true) {
+    if (_currentUSER[0].isAdmin == true) {
       for (let k = 0; k < _lsNotes.length; k++) {
         let catsHide = document.querySelectorAll(`.category__item`);
         let tasksHide = document.querySelectorAll(`.task__item`);
-        tasksHide[k].classList.remove('hideOthersbyID');
+        tasksHide[k].classList.remove("hideOthersbyID");
         catsHide[k].classList.remove("hideOthersbyID");
       }
     }
-  }
 }
 export { sortByID };

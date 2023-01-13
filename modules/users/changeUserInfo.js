@@ -49,7 +49,7 @@ saveBtn.addEventListener("click", () => {
         filtredCurrentUser[0].password = settingsPassword.value;
   
         let filtredUsers = _lsUsers.filter(
-          (item) => item.id != filtredCurrentUser[0].idlogin
+          (item) => item.id != filtredCurrentUser[0].id
         );
         filtredUsers.push(filtredCurrentUser[0]);
         _currentUser[0].login = settingsLogin.value;
@@ -59,10 +59,11 @@ saveBtn.addEventListener("click", () => {
         msg.textContent = "Changes have successfully changed!";
         alertInfo();
         setTimeout(() => {
-          window.location.href = "../signin.html";
+          window.location.href = "../../pages/signin.html";
         }, 2000);
       } 
       else if(filtredCurrentUser[0].bio != settingsBio.value){
+        
         filtredCurrentUser[0].bio = settingsBio.value;
         let filtredUsers = _lsUsers.filter(
           (item) => item.id != filtredCurrentUser[0].id
@@ -74,7 +75,7 @@ saveBtn.addEventListener("click", () => {
         msg.textContent = "Changes have successfully changed!";
         alertInfo();
         setTimeout(() => {
-          window.location.href = "./notes.html";
+          window.location.href = "../../pages/notes.html";
         }, 2000);
       }
       else {
@@ -82,7 +83,7 @@ saveBtn.addEventListener("click", () => {
         msg.textContent = "No changes detected!";
         alertInfo();
         setTimeout(() => {
-          window.location.href = "./notes.html";
+          window.location.href = "../../pages/notes.html";
         }, 2000);
       }
     } else {

@@ -1,3 +1,4 @@
+import { alertInfo } from "../notes/alertInfo.js";
 function signupUser() {
   let saveBtn = document.querySelector(".signup__button-save"),
     userLogin = document.querySelector(".signup__login"),
@@ -6,7 +7,7 @@ function signupUser() {
     generatePass = document.querySelector("#generate-1"),
     showPass = document.querySelector("#showPass-1"),
     userBio = document.querySelector("#signup__bio"),
-    signinBtn=document.querySelector('.signup__button-signin')
+    signinBtn = document.querySelector(".signup__button-signin");
   showPass.addEventListener("change", (event) => {
     let target = event.target;
     if (target.checked) {
@@ -50,7 +51,12 @@ function signupUser() {
         localStorage.setItem("users-list", JSON.stringify(users));
         localStorage.setItem("user-count", i);
 
-        window.location.href = "../../signin.html";
+        let msg = document.querySelector(".msg") ?? 0;
+        msg.textContent = "Account has successfully created!";
+        alertInfo();
+        setTimeout(() => {
+          window.location.href = "../../pages/signin.html";
+        }, 2000);
       } else {
         alert("Пароли не совпадают!!!");
       }
@@ -58,9 +64,9 @@ function signupUser() {
       alert("Все поля не заполнены!!!");
     }
   });
-  signinBtn.addEventListener("click",()=>{
-    window.location.href= "./signin.html"
-  })
+  signinBtn.addEventListener("click", () => {
+    window.location.href = "./signin.html";
+  });
 }
 
 export { signupUser };

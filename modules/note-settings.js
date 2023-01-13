@@ -5,6 +5,8 @@ import { searchNote } from "./notes/searchNote.js";
 import { saveNote } from "./notes/saveNote.js";
 import { sortByID } from "./notes/sortByID.js";
 import { check } from "./notes/importanceCheckbox.js";
+import { DraggableAndDropable } from "./notes/dragAndDrop.js";
+import { sortByDragDrop } from "./notes/sortByDragDrop.js";
 
 tabChecked();
 tabSettings();
@@ -15,3 +17,5 @@ saveNote();
 userTab();
 sortByID();
 check();
+DraggableAndDropable();
+sortByDragDrop();

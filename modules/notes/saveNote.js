@@ -24,7 +24,7 @@ function saveNote() {
                     </div>
                     `;
       const catItem = `
-            <div class="category__item category__item-${i}  category__userID-${_lsNotes[i].userID}" data-item="${i}">
+            <div class="category__item category__item-${i}  category__userID-${_lsNotes[i].userID}" data-item="${i}" draggable="true">
                 <div class="category__note category__note-${i}" data-item="${i}">${_lsNotes[i].target}</div>
                 <div class="category__date category__date-${i}" data-item="${i}">${_lsNotes[i].date}</div>
                 <div class="category__btn">
@@ -39,9 +39,16 @@ function saveNote() {
       let taskName = document.querySelector(".task-name"),
         taskDate = document.querySelector(".task-date"),
         taskCond = document.querySelector(".task-condition");
-
       if (_lsNotes[i].importance == true) {
         taskCond.style.background = `#ff0000`;
+      }
+      if (_lsNotes[i].importance == false) {
+        taskCond.style.background = `#ffa500`;
+      }
+      if (_lsNotes[i].done == true) {
+        taskDate.style.textDecoration = "line-through";
+        taskName.style.textDecoration = "line-through";
+        taskCond.style.background = "#3bc43b";
       }
       if (_lsNotes[i].done == true) {
         doneContent.appendChild(document.querySelector(`.category__item-${i}`));

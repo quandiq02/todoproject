@@ -7,15 +7,16 @@ import {
   catsBlock,
   searchInput,
 } from "../vars.js";
-import { sortCategories } from "./sortCategories.js";
 import { taskDone } from "./taskDone.js";
 import { deleteNote } from "./deleteNote.js";
 import { editNote } from "./editNote.js";
 import { alertInfo } from "./alertInfo.js";
+import { DraggableAndDropable } from "./dragAndDrop.js";
+import { sortCategories } from "./sortCategories.js";
 
 function addNote() {
   btnAddNote.addEventListener("click", function () {
-    let _currentUSER =JSON.parse(localStorage.getItem('current-user'));
+    let _currentUSER = JSON.parse(localStorage.getItem("current-user"));
     let i = JSON.parse(localStorage.getItem("count")) ?? 0;
     let _lsNotes = JSON.parse(localStorage.getItem("notes"));
     if (noteInfo.value != "" && dateInfo.value != "") {
@@ -29,7 +30,7 @@ function addNote() {
                     </div>
                     `;
       const catItem = `
-            <div class="category__item category__item-${i} category__userID-${_lsNotes[i].userID}" data-item="${i}">
+            <div class="category__item category__item-${i} category__userID-${_lsNotes[i].userID}" data-item="${i}" draggable="true">
                 <div class="category__note category__note-${i} " data-item="${i}">${_lsNotes[i].target}</div>
                 <div class="category__date category__date-${i} " data-item="${i}">${_lsNotes[i].date}</div>
                 <div class="category__btn">
@@ -39,7 +40,7 @@ function addNote() {
            </div>
             `;
       searchInput.insertAdjacentHTML("afterend", taskItem);
-      catsBlock.insertAdjacentHTML("afterend", catItem);
+      catsBlock.insertAdjacentHTML("afterbegin", catItem);
 
       let taskName = document.querySelector(".task-name"),
         taskDate = document.querySelector(".task-date"),
@@ -47,15 +48,27 @@ function addNote() {
 
       if (_lsNotes[i].importance == true) {
         taskCond.style.background = `#ff0000`;
+        taskDate.style.textDecoration = "none";
+        taskName.style.textDecoration = "none";
+      }
+      if (_lsNotes[i].importance == false) {
+        taskCond.style.background = `#ffa500`;
+        taskDate.style.textDecoration = "none";
+        taskName.style.textDecoration = "none";
+      }
+      if (_lsNotes[i].done == true) {
+        taskDate.style.textDecoration = "line-through";
+        taskName.style.textDecoration = "line-through";
+        taskCond.style.background = "#3bc43b";
       }
 
-     
       let msg = document.querySelector(".msg") ?? 0;
       msg.textContent = "Note added";
-      alertInfo()
+      alertInfo();
       deleteNote();
       editNote();
       sortCategories();
+      DraggableAndDropable();
 
       taskName.addEventListener("click", taskDone);
       taskDate.addEventListener("click", taskDone);
